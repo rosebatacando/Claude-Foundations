@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tracey Santiago — AI Automation Strategist</title>
+<meta name="description" content="Ante Tracey — AI Automation Strategist &amp; GoHighLevel Expert. I build business systems that eliminate repetitive work and help companies scale.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<!-- AOS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          bg: '#0F0F0F',
+          card: '#171717',
+          gold: '#E8A020',
+          ink: '#FFFFFF',
+          muted: '#B5B5B5',
+          line: 'rgba(255,255,255,.08)'
+        },
+        fontFamily: {
+          heading: ['"Space Grotesk"', 'sans-serif'],
+          body: ['Inter', 'sans-serif']
+        }
+      }
+    }
+  }
+</script>
+
+<style>
+  :root{
+    --bg:#0F0F0F; --card:#171717; --gold:#E8A020; --ink:#FFFFFF; --muted:#B5B5B5; --line:rgba(255,255,255,.08);
+  }
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg); color:var(--ink); font-family:'Inter',sans-serif; overflow-x:hidden;}
+  h1,h2,h3,h4,.font-heading{font-family:'Space Grotesk',sans-serif;}
+
+  ::selection{background:var(--gold); color:#0F0F0F;}
+
+  /* Scroll progress bar */
+  #scrollProgress{position:fixed; top:0; left:0; height:3px; background:var(--gold); z-index:9999; width:0%; transition:width .1s linear;}
+
+  /* Sticky Nav */
+  #mainNav{transition:background .3s ease, border-color .3s ease, padding .3s ease;}
+  #mainNav.scrolled{background:rgba(15,15,15,.85); backdrop-filter: blur(14px); border-bottom:1px solid var(--line);}
+
+  .nav-link{position:relative; color:var(--muted); transition:color .25s ease;}
+  .nav-link:hover{color:var(--ink);}
+  .nav-link::after{content:''; position:absolute; left:0; bottom:-4px; width:0; height:1px; background:var(--gold); transition:width .25s ease;}
+  .nav-link:hover::after{width:100%;}
+
+  .btn-gold{background:var(--gold); color:#0F0F0F; font-weight:600; transition:transform .25s ease, box-shadow .25s ease, background .25s ease;}
+  .btn-gold:hover{transform:translateY(-2px); box-shadow:0 12px 30px -8px rgba(232,160,32,.45);}
+  .btn-outline{border:1px solid var(--line); color:var(--ink); transition:border-color .25s ease, background .25s ease, transform .25s ease;}
+  .btn-outline:hover{border-color:var(--gold); background:rgba(232,160,32,.06); transform:translateY(-2px);}
+
+  .card{background:var(--card); border:1px solid var(--line); transition:transform .3s ease, border-color .3s ease, box-shadow .3s ease;}
+  .card:hover{transform:translateY(-6px); border-color:rgba(232,160,32,.35); box-shadow:0 24px 50px -20px rgba(0,0,0,.6);}
+
+  .section-label{letter-spacing:.2em; text-transform:uppercase; font-size:.75rem; color:var(--gold); font-weight:600;}
+
+  .divider{height:1px; background:linear-gradient(90deg, transparent, var(--line), transparent);}
+
+  /* Logo grid */
+  .logo-pill{border:1px solid var(--line); background:var(--card); color:var(--muted); transition:all .25s ease;}
+  .logo-pill:hover{border-color:var(--gold); color:var(--ink); transform:translateY(-3px);}
+
+  /* gallery */
+  .gal-item{position:relative; overflow:hidden; border-radius:.75rem; border:1px solid var(--line); background:var(--card); cursor:pointer;}
+  .gal-item img{transition:transform .5s ease; width:100%; height:100%; object-fit:cover; display:block;}
+  .gal-item:hover img{transform:scale(1.08);}
+  .gal-filter-btn{border:1px solid var(--line); color:var(--muted); transition:all .25s ease;}
+  .gal-filter-btn.active, .gal-filter-btn:hover{background:var(--gold); color:#0F0F0F; border-color:var(--gold);}
+
+  /* certifications */
+  .cert-card{cursor:pointer;}
+  .cert-frame{aspect-ratio:4/3; overflow:hidden; border-radius:.6rem; background:#fff;}
+  .cert-frame img{width:100%; height:100%; object-fit:contain;}
+
+  /* Testimonial carousel */
+  #testiTrack{display:flex; gap:1.5rem; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none; -ms-overflow-style:none;}
+  #testiTrack::-webkit-scrollbar{display:none;}
+  .testi-card{scroll-snap-align:start; flex:0 0 100%; }
+  @media(min-width:768px){ .testi-card{flex:0 0 48%;} }
+  @media(min-width:1100px){ .testi-card{flex:0 0 31.5%;} }
+  .star-gold{color:var(--gold);}
+
+  .dot{width:8px; height:8px; border-radius:50%; background:var(--line); cursor:pointer; transition:all .25s ease;}
+  .dot.active{background:var(--gold); width:22px; border-radius:6px;}
+
+  /* modal */
+  #certModal, #galModal{backdrop-filter: blur(6px);}
+
+  /* back to top */
+  #backToTop{opacity:0; pointer-events:none; transition:opacity .3s ease, transform .3s ease;}
+  #backToTop.show{opacity:1; pointer-events:auto;}
+
+  /* mobile menu */
+  #mobileMenu{transition:max-height .35s ease, opacity .3s ease;}
+
+  .num-gold{color:var(--gold); font-family:'Space Grotesk',sans-serif;}
+
+  .hero-photo-wrap::before{
+    content:''; position:absolute; inset:-2px; border-radius:1.5rem; border:1px solid rgba(232,160,32,.35); pointer-events:none;
+  }
+
+  .marquee-track{display:flex; width:max-content; animation:marquee 32s linear infinite;}
+  @keyframes marquee{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
+</style>
+</head>
+<body class="antialiased">
+
+<div id="scrollProgress"></div>
+
+<!-- ============ NAV ============ -->
+<nav id="mainNav" class="fixed top-0 left-0 w-full z-50">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-20">
+    <a href="#home" class="font-heading text-xl font-bold tracking-tight">Ante <span style="color:var(--gold)">Tracey</span></a>
+    <div class="hidden lg:flex items-center gap-9 text-sm font-medium">
+      <a href="#outcomes" class="nav-link">Outcomes</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <a href="#certifications" class="nav-link">Certifications</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#testimonials" class="nav-link">Testimonials</a>
+      <a href="#gallery" class="nav-link">Gallery</a>
+    </div>
+    <a href="#contact" class="hidden lg:inline-block btn-gold text-sm px-5 py-2.5 rounded-full">Let's Work Together</a>
+    <button id="menuBtn" class="lg:hidden text-2xl"><i class="fa-solid fa-bars"></i></button>
+  </div>
+  <div id="mobileMenu" class="lg:hidden overflow-hidden max-h-0 opacity-0 px-6 pb-4 flex flex-col gap-4 text-sm">
+    <a href="#outcomes" class="nav-link">Outcomes</a>
+    <a href="#projects" class="nav-link">Projects</a>
+    <a href="#skills" class="nav-link">Skills</a>
+    <a href="#certifications" class="nav-link">Certifications</a>
+    <a href="#about" class="nav-link">About</a>
+    <a href="#testimonials" class="nav-link">Testimonials</a>
+    <a href="#gallery" class="nav-link">Gallery</a>
+    <a href="#contact" class="btn-gold text-center px-5 py-2.5 rounded-full">Let's Work Together</a>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header id="home" class="relative min-h-screen flex items-center pt-32 pb-20 px-6 lg:px-10">
+  <div class="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-16 items-center">
+    <div data-aos="fade-up">
+      <p class="section-label mb-6"><i class="fa-solid fa-bolt mr-2"></i>AI Automation Strategist &middot; GoHighLevel Expert</p>
+      <h1 class="font-heading text-5xl md:text-6xl lg:text-[4.2rem] font-bold leading-[1.05] mb-8">
+        I Build AI-Powered Systems That Help Businesses Scale.
+      </h1>
+      <p class="text-lg text-muted leading-relaxed mb-10 max-w-xl" style="color:var(--muted)">
+        I don't sell tasks — I engineer the CRM workflows, funnels, and AI-driven automations that let health &amp; wellness brands, e-commerce stores, real estate teams, and personal brands grow without hiring their way out of admin work.
+      </p>
+      <div class="flex flex-wrap gap-4 mb-14">
+        <a href="#contact" class="btn-gold px-8 py-4 rounded-full">Book a Free Discovery Call</a>
+        <a href="#projects" class="btn-outline px-8 py-4 rounded-full">View My Work</a>
+      </div>
+      <div class="flex items-center gap-10">
+        <div>
+          <div class="font-heading text-3xl font-bold num-gold">7+</div>
+          <div class="text-xs uppercase tracking-widest" style="color:var(--muted)">Years Experience</div>
+        </div>
+        <div class="w-px h-10" style="background:var(--line)"></div>
+        <div>
+          <div class="font-heading text-3xl font-bold num-gold">32+</div>
+          <div class="text-xs uppercase tracking-widest" style="color:var(--muted)">Brands Scaled</div>
+        </div>
+        <div class="w-px h-10" style="background:var(--line)"></div>
+        <div>
+          <div class="font-heading text-3xl font-bold num-gold">128%</div>
+          <div class="text-xs uppercase tracking-widest" style="color:var(--muted)">Best Email ROI</div>
+        </div>
+      </div>
+    </div>
+    <div class="relative" data-aos="fade-up" data-aos-delay="150">
+      <div class="hero-photo-wrap relative rounded-3xl overflow-hidden" style="background:var(--card)">
+        <img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/8d6caee69706034308f5bac688edad60.jpg" alt="Tracey Santiago, AI Automation Strategist" class="w-full h-full object-cover rounded-3xl">
+      </div>
+      <div class="absolute -bottom-6 -left-6 card rounded-2xl px-6 py-4 hidden md:block">
+        <div class="flex items-center gap-3">
+          <i class="fa-solid fa-diagram-project text-2xl" style="color:var(--gold)"></i>
+          <div>
+            <div class="font-heading font-semibold">Systems Builder</div>
+            <div class="text-xs" style="color:var(--muted)">CRM &middot; Funnels &middot; AI Workflows</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href="#stack" class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-xs" style="color:var(--muted)">
+    <span class="uppercase tracking-widest">Scroll</span>
+    <i class="fa-solid fa-chevron-down animate-bounce"></i>
+  </a>
+</header>
+
+<!-- ============ TRUSTED BY / STACK ============ -->
+<section id="stack" class="py-16 border-y" style="border-color:var(--line)">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <p class="text-center section-label mb-10">The Stack Behind The Systems</p>
+    <div class="overflow-hidden">
+      <div class="marquee-track">
+        <!-- set 1 -->
+        <div class="flex gap-4 pr-4">
+          <span class="logo-pill px-6 py-3 rounded-full whitespace-nowrap"><i class="fa-solid fa-arrow-up-right-dots mr-2"></i>GoHighLevel</span>
+          <span class="logo-pill px-6 py-3 rounded-full whitespace-nowrap">Claude AI</span>
+          <span class="logo-pill px-6 py-3 rounded-full whitespace-nowrap">OpenAI / ChatGPT</span>
+          <span class="logo-pill px-6 py-3 rounded-full whitespace-nowrap"><i class="fa-solid fa-bolt mr-2"></i>Zapier</span>
+          <span class="logo-pill px-6 py-3 rounded-full whitespace-nowrap">Make.com</span>
+          <span class="logo-pill px-6 py-3 rounded-full whitespace-nowrap"><i class="fa-brands fa-mailchimp mr-2"></i>Klaviyo</span>
+          <span class="logo-pill px-6 py-3 rounded-full whitespace-nowrap"><i class="fa-brands fa-google mr-2"></i>Google Workspace</span>
+          <span class="logo-pill px-6 py-3 rounded-full whitespace-nowrap"><i class="fa-brands fa-slack mr-2"></i>Slack</span>
+          <span class="logo-pill px-6 py-3 rounded-full whitespace-nowrap">Notion</span>
+          <span class="logo-pill px-6 py-3 rounded-full whitespace-nowrap">ClickUp</span>
+          <span class="logo-pill px-6 py-3 rounded-full whitespace-nowrap"><i class="fa-brands fa-canva mr-2"></i>Canva</span>
+          <span class="logo-pill px-6 py-3 rounded-full whitespace-nowrap"><i class="fa-brands fa-wordpress mr-2"></i>WordPress</span>
+          <span class="logo-pill px-6 py-3 rounded-full whitespace-nowrap"><i class="fa-brands fa-shopify mr-2"></i>Shopify</span>
+          <span class="logo-pill px-6 py-3 rounded-full whitespace-nowrap"><i class="fa-brands fa-meta mr-2"></i>Meta</span>
+        </div>
+        <!-- set 2 duplicate for seamless loop -->
+        <div class="flex gap-4 pr-4">
+          <span class="logo-pill px-6 py-3 rounded-full whitespace-nowrap"><i class="fa-solid fa-arrow-up-right-dots mr-2"></i>GoHighLevel</span>
+          <span class="logo-pill px-6 py-3 rounded-full whitespace-nowrap">Claude AI</span>
+          <span class="logo-pill px-6 py-3 rounded-full whitespace-nowrap">OpenAI / ChatGPT</span>
+          <span class="logo-pill px-6 py-3 rounded-full whitespace-nowrap"><i class="fa-solid fa-bolt mr-2"></i>Zapier</span>
+          <span class="logo-pill px-6 py-3 rounded-full whitespace-nowrap">Make.com</span>
+          <span class="logo-pill px-6 py-3 rounded-full whitespace-nowrap"><i class="fa-brands fa-mailchimp mr-2"></i>Klaviyo</span>
+          <span class="logo-pill px-6 py-3 rounded-full whitespace-nowrap"><i class="fa-brands fa-google mr-2"></i>Google Workspace</span>
+          <span class="logo-pill px-6 py-3 rounded-full whitespace-nowrap"><i class="fa-brands fa-slack mr-2"></i>Slack</span>
+          <span class="logo-pill px-6 py-3 rounded-full whitespace-nowrap">Notion</span>
+          <span class="logo-pill px-6 py-3 rounded-full whitespace-nowrap">ClickUp</span>
+          <span class="logo-pill px-6 py-3 rounded-full whitespace-nowrap"><i class="fa-brands fa-canva mr-2"></i>Canva</span>
+          <span class="logo-pill px-6 py-3 rounded-full whitespace-nowrap"><i class="fa-brands fa-wordpress mr-2"></i>WordPress</span>
+          <span class="logo-pill px-6 py-3 rounded-full whitespace-nowrap"><i class="fa-brands fa-shopify mr-2"></i>Shopify</span>
+          <span class="logo-pill px-6 py-3 rounded-full whitespace-nowrap"><i class="fa-brands fa-meta mr-2"></i>Meta</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BUSINESS OUTCOMES ============ -->
+<section id="outcomes" class="py-28 px-6 lg:px-10">
+  <div class="max-w-7xl mx-auto">
+    <div class="max-w-2xl mb-16" data-aos="fade-up">
+      <p class="section-label mb-4">Business Outcomes</p>
+      <h2 class="font-heading text-4xl md:text-5xl font-bold leading-tight">Not Deliverables. Outcomes.</h2>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="card rounded-2xl p-8" data-aos="fade-up">
+        <i class="fa-solid fa-clock text-3xl mb-6" style="color:var(--gold)"></i>
+        <h3 class="font-heading text-xl font-semibold mb-3">Save 10–30+ Hours a Week</h3>
+        <p style="color:var(--muted)">Repetitive admin, follow-ups, and data entry get automated out of your calendar entirely.</p>
+      </div>
+      <div class="card rounded-2xl p-8" data-aos="fade-up" data-aos-delay="80">
+        <i class="fa-solid fa-arrow-trend-up text-3xl mb-6" style="color:var(--gold)"></i>
+        <h3 class="font-heading text-xl font-semibold mb-3">Higher Lead Conversion</h3>
+        <p style="color:var(--muted)">Funnels and follow-up sequences built to turn cold traffic into booked calls and paying clients.</p>
+      </div>
+      <div class="card rounded-2xl p-8" data-aos="fade-up" data-aos-delay="160">
+        <i class="fa-solid fa-people-arrows text-3xl mb-6" style="color:var(--gold)"></i>
+        <h3 class="font-heading text-xl font-semibold mb-3">Onboarding On Autopilot</h3>
+        <p style="color:var(--muted)">New clients and customers move through a guided journey without you lifting a finger.</p>
+      </div>
+      <div class="card rounded-2xl p-8" data-aos="fade-up">
+        <i class="fa-solid fa-shield-heart text-3xl mb-6" style="color:var(--gold)"></i>
+        <h3 class="font-heading text-xl font-semibold mb-3">Zero Manual Errors</h3>
+        <p style="color:var(--muted)">Systems replace spreadsheets and copy-paste, so nothing falls through the cracks.</p>
+      </div>
+      <div class="card rounded-2xl p-8" data-aos="fade-up" data-aos-delay="80">
+        <i class="fa-solid fa-face-smile-beam text-3xl mb-6" style="color:var(--gold)"></i>
+        <h3 class="font-heading text-xl font-semibold mb-3">A Better Customer Experience</h3>
+        <p style="color:var(--muted)">Faster responses and consistent touchpoints that make your business feel bigger than it is.</p>
+      </div>
+      <div class="card rounded-2xl p-8" data-aos="fade-up" data-aos-delay="160">
+        <i class="fa-solid fa-layer-group text-3xl mb-6" style="color:var(--gold)"></i>
+        <h3 class="font-heading text-xl font-semibold mb-3">Operations Built to Scale</h3>
+        <p style="color:var(--muted)">Documented, repeatable systems that keep working whether you have 10 clients or 1,000.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="max-w-7xl mx-auto px-6 lg:px-10"><div class="divider"></div></div>
+
+<!-- ============ FEATURED PROJECTS ============ -->
+<section id="projects" class="py-28 px-6 lg:px-10">
+  <div class="max-w-7xl mx-auto">
+    <div class="max-w-2xl mb-16" data-aos="fade-up">
+      <p class="section-label mb-4">Featured Projects</p>
+      <h2 class="font-heading text-4xl md:text-5xl font-bold leading-tight">Systems I've Built, And What They Delivered</h2>
+    </div>
+
+    <div class="space-y-10">
+      <!-- Project 1 -->
+      <div class="card rounded-3xl p-8 md:p-12 grid lg:grid-cols-5 gap-10" data-aos="fade-up">
+        <div class="lg:col-span-2">
+          <span class="text-xs uppercase tracking-widest" style="color:var(--gold)">Digital Marketing &amp; SEO</span>
+          <h3 class="font-heading text-3xl font-bold mt-2 mb-6">SQmedia</h3>
+          <div class="grid grid-cols-3 gap-4 text-center">
+            <div><div class="font-heading text-2xl font-bold num-gold">+45%</div><div class="text-xs" style="color:var(--muted)">Website Traffic</div></div>
+            <div><div class="font-heading text-2xl font-bold num-gold">+20%</div><div class="text-xs" style="color:var(--muted)">Conversion Rate</div></div>
+            <div><div class="font-heading text-2xl font-bold num-gold">Top 3</div><div class="text-xs" style="color:var(--muted)">Search Rankings</div></div>
+          </div>
+        </div>
+        <div class="lg:col-span-3 grid sm:grid-cols-2 gap-x-8 gap-y-5 text-sm">
+          <div><h4 class="font-semibold mb-1" style="color:var(--gold)">Challenge</h4><p style="color:var(--muted)">Buried in a crowded market with weak visibility, inconsistent messaging, and no system for turning traffic into booked calls.</p></div>
+          <div><h4 class="font-semibold mb-1" style="color:var(--gold)">Strategy</h4><p style="color:var(--muted)">Rebuilt the SEO foundation, launched targeted LinkedIn InMail outreach, and ran a full market analysis to find the real opportunity gaps.</p></div>
+          <div><h4 class="font-semibold mb-1" style="color:var(--gold)">Solution</h4><p style="color:var(--muted)">Fixed the messaging across the website and outbound campaigns, then layered in data-driven optimization on every channel.</p></div>
+          <div><h4 class="font-semibold mb-1" style="color:var(--gold)">Business Impact</h4><p style="color:var(--muted)">More booked appointments, more closed deals, and a digital presence that now outperforms competitors.</p></div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="card rounded-3xl p-8 md:p-12 grid lg:grid-cols-5 gap-10" data-aos="fade-up">
+        <div class="lg:col-span-2">
+          <span class="text-xs uppercase tracking-widest" style="color:var(--gold)">Social Media Scaling</span>
+          <h3 class="font-heading text-3xl font-bold mt-2 mb-6">Live Infinitely</h3>
+          <div class="grid grid-cols-3 gap-4 text-center">
+            <div><div class="font-heading text-2xl font-bold num-gold">+50%</div><div class="text-xs" style="color:var(--muted)">Followers (90 days)</div></div>
+            <div><div class="font-heading text-2xl font-bold num-gold">+40%</div><div class="text-xs" style="color:var(--muted)">Organic Reach</div></div>
+            <div><div class="font-heading text-2xl font-bold num-gold">New</div><div class="text-xs" style="color:var(--muted)">Partnerships Secured</div></div>
+          </div>
+        </div>
+        <div class="lg:col-span-3 grid sm:grid-cols-2 gap-x-8 gap-y-5 text-sm">
+          <div><h4 class="font-semibold mb-1" style="color:var(--gold)">Challenge</h4><p style="color:var(--muted)">A brand with zero social media presence needed to build credibility and generate leads from scratch on Facebook and Instagram.</p></div>
+          <div><h4 class="font-semibold mb-1" style="color:var(--gold)">Strategy</h4><p style="color:var(--muted)">Built a content calendar, creative system, and audience engagement plan designed to compound over time.</p></div>
+          <div><h4 class="font-semibold mb-1" style="color:var(--gold)">Solution</h4><p style="color:var(--muted)">Layered paid amplification on top of organic content and tracked analytics weekly to double down on what worked.</p></div>
+          <div><h4 class="font-semibold mb-1" style="color:var(--gold)">Business Impact</h4><p style="color:var(--muted)">A credible online presence, an active community, and inbound partnership interest that didn't exist before.</p></div>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="card rounded-3xl p-8 md:p-12 grid lg:grid-cols-5 gap-10" data-aos="fade-up">
+        <div class="lg:col-span-2">
+          <span class="text-xs uppercase tracking-widest" style="color:var(--gold)">Email Marketing Automation</span>
+          <h3 class="font-heading text-3xl font-bold mt-2 mb-6">BigFudge</h3>
+          <div class="grid grid-cols-3 gap-4 text-center">
+            <div><div class="font-heading text-2xl font-bold num-gold">+55%</div><div class="text-xs" style="color:var(--muted)">Open Rate</div></div>
+            <div><div class="font-heading text-2xl font-bold num-gold">+35%</div><div class="text-xs" style="color:var(--muted)">Click-Through Rate</div></div>
+            <div><div class="font-heading text-2xl font-bold num-gold">+62.4%</div><div class="text-xs" style="color:var(--muted)">Attributed Sales</div></div>
+          </div>
+        </div>
+        <div class="lg:col-span-3 grid sm:grid-cols-2 gap-x-8 gap-y-5 text-sm">
+          <div><h4 class="font-semibold mb-1" style="color:var(--gold)">Challenge</h4><p style="color:var(--muted)">A dormant email list with declining engagement and no automation behind it.</p></div>
+          <div><h4 class="font-semibold mb-1" style="color:var(--gold)">Strategy</h4><p style="color:var(--muted)">Segmented the list, rebuilt the flows, and introduced personalized content with a rolling A/B testing cadence.</p></div>
+          <div><h4 class="font-semibold mb-1" style="color:var(--gold)">Solution</h4><p style="color:var(--muted)">Automated the full campaign calendar with targeted promotions and exclusive offers tied to customer behavior.</p></div>
+          <div><h4 class="font-semibold mb-1" style="color:var(--gold)">Business Impact</h4><p style="color:var(--muted)">Re-engaged a dormant list and turned email back into one of the brand's highest-revenue channels.</p></div>
+        </div>
+      </div>
+
+      <!-- Project 4 - Website systems -->
+      <div class="card rounded-3xl p-8 md:p-12 grid lg:grid-cols-5 gap-10" data-aos="fade-up">
+        <div class="lg:col-span-2">
+          <span class="text-xs uppercase tracking-widest" style="color:var(--gold)">Website &amp; Funnel Builds</span>
+          <h3 class="font-heading text-3xl font-bold mt-2 mb-6">Island Home &amp; Ultra Recovery Care</h3>
+          <div class="rounded-xl overflow-hidden border mb-3" style="border-color:var(--line)">
+            <img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/182c987c485cbf65fd7e691e8431a70e.png" alt="Island Home website build" class="w-full">
+          </div>
+          <div class="rounded-xl overflow-hidden border" style="border-color:var(--line)">
+            <img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/5db17717aaae3539fad9f63d93d478fe.png" alt="Ultra Recovery Care website build" class="w-full">
+          </div>
+        </div>
+        <div class="lg:col-span-3 grid sm:grid-cols-2 gap-x-8 gap-y-5 text-sm">
+          <div><h4 class="font-semibold mb-1" style="color:var(--gold)">Challenge</h4><p style="color:var(--muted)">Two service businesses — a luxury cabinet retailer and a mobile nursing concierge — needed a digital front door that matched the quality of their in-person service.</p></div>
+          <div><h4 class="font-semibold mb-1" style="color:var(--gold)">Strategy</h4><p style="color:var(--muted)">Designed conversion-focused site architecture with clear calls to action, trust signals, and a story-first layout.</p></div>
+          <div><h4 class="font-semibold mb-1" style="color:var(--gold)">Solution</h4><p style="color:var(--muted)">Built and launched both sites end-to-end, from copy and layout to booking and quote-request flows.</p></div>
+          <div><h4 class="font-semibold mb-1" style="color:var(--gold)">Business Impact</h4><p style="color:var(--muted)">A professional online presence that now does the selling before a prospect ever picks up the phone.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="max-w-7xl mx-auto px-6 lg:px-10"><div class="divider"></div></div>
+
+<!-- ============ SKILLS ============ -->
+<section id="skills" class="py-28 px-6 lg:px-10">
+  <div class="max-w-7xl mx-auto">
+    <div class="max-w-2xl mb-16" data-aos="fade-up">
+      <p class="section-label mb-4">Capabilities</p>
+      <h2 class="font-heading text-4xl md:text-5xl font-bold leading-tight">What I Bring To The Table</h2>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="card rounded-2xl p-7" data-aos="fade-up">
+        <i class="fa-solid fa-brain text-2xl mb-4" style="color:var(--gold)"></i>
+        <h3 class="font-heading font-semibold mb-3">AI</h3>
+        <ul class="text-sm space-y-1.5" style="color:var(--muted)">
+          <li>AI Workflow Design</li>
+          <li>Claude &amp; ChatGPT Integration</li>
+          <li>AI-Assisted Content Systems</li>
+        </ul>
+      </div>
+      <div class="card rounded-2xl p-7" data-aos="fade-up" data-aos-delay="60">
+        <i class="fa-solid fa-gears text-2xl mb-4" style="color:var(--gold)"></i>
+        <h3 class="font-heading font-semibold mb-3">Automation</h3>
+        <ul class="text-sm space-y-1.5" style="color:var(--muted)">
+          <li>Zapier &amp; Make Workflows</li>
+          <li>Email &amp; SMS Automation</li>
+          <li>Onboarding Sequences</li>
+        </ul>
+      </div>
+      <div class="card rounded-2xl p-7" data-aos="fade-up" data-aos-delay="120">
+        <i class="fa-solid fa-address-card text-2xl mb-4" style="color:var(--gold)"></i>
+        <h3 class="font-heading font-semibold mb-3">CRM</h3>
+        <ul class="text-sm space-y-1.5" style="color:var(--muted)">
+          <li>GoHighLevel Build-Outs</li>
+          <li>Pipeline &amp; Lead Management</li>
+          <li>Client Management Systems</li>
+        </ul>
+      </div>
+      <div class="card rounded-2xl p-7" data-aos="fade-up" data-aos-delay="180">
+        <i class="fa-solid fa-filter text-2xl mb-4" style="color:var(--gold)"></i>
+        <h3 class="font-heading font-semibold mb-3">Funnels</h3>
+        <ul class="text-sm space-y-1.5" style="color:var(--muted)">
+          <li>High-Converting Funnel Design</li>
+          <li>Landing Page Builds</li>
+          <li>Sales Optimization</li>
+        </ul>
+      </div>
+      <div class="card rounded-2xl p-7" data-aos="fade-up">
+        <i class="fa-solid fa-bullhorn text-2xl mb-4" style="color:var(--gold)"></i>
+        <h3 class="font-heading font-semibold mb-3">Marketing</h3>
+        <ul class="text-sm space-y-1.5" style="color:var(--muted)">
+          <li>Digital Marketing Strategy</li>
+          <li>LinkedIn Lead Generation</li>
+          <li>Social Media Management</li>
+        </ul>
+      </div>
+      <div class="card rounded-2xl p-7" data-aos="fade-up" data-aos-delay="60">
+        <i class="fa-solid fa-diagram-project text-2xl mb-4" style="color:var(--gold)"></i>
+        <h3 class="font-heading font-semibold mb-3">Operations</h3>
+        <ul class="text-sm space-y-1.5" style="color:var(--muted)">
+          <li>Business Systems Building</li>
+          <li>Process Documentation</li>
+          <li>Team &amp; Task Management</li>
+        </ul>
+      </div>
+      <div class="card rounded-2xl p-7" data-aos="fade-up" data-aos-delay="120">
+        <i class="fa-solid fa-chart-line text-2xl mb-4" style="color:var(--gold)"></i>
+        <h3 class="font-heading font-semibold mb-3">Analytics</h3>
+        <ul class="text-sm space-y-1.5" style="color:var(--muted)">
+          <li>Campaign Reporting</li>
+          <li>Conversion Tracking</li>
+          <li>Data-Driven Optimization</li>
+        </ul>
+      </div>
+      <div class="card rounded-2xl p-7" data-aos="fade-up" data-aos-delay="180">
+        <i class="fa-solid fa-palette text-2xl mb-4" style="color:var(--gold)"></i>
+        <h3 class="font-heading font-semibold mb-3">Content &amp; Design</h3>
+        <ul class="text-sm space-y-1.5" style="color:var(--muted)">
+          <li>Brand-Aligned Graphic Design</li>
+          <li>Copywriting</li>
+          <li>Newsletter &amp; Email Design</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="max-w-7xl mx-auto px-6 lg:px-10"><div class="divider"></div></div>
+
+<!-- ============ CERTIFICATIONS ============ -->
+<section id="certifications" class="py-28 px-6 lg:px-10">
+  <div class="max-w-7xl mx-auto">
+    <div class="max-w-2xl mb-16" data-aos="fade-up">
+      <p class="section-label mb-4">Certifications</p>
+      <h2 class="font-heading text-4xl md:text-5xl font-bold leading-tight">Credentials Backing The Work</h2>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="card cert-card rounded-2xl p-5" data-aos="fade-up" onclick="openCertModal('https://traceyklix.my.canva.site/updatedporfolio2025/media/0f6bd432f9d31e122ebb6c87bb8bc7c6.png','Ecommerce Marketing Specialist')">
+        <div class="cert-frame mb-4"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/0f6bd432f9d31e122ebb6c87bb8bc7c6.png" alt="Certified Ecommerce Marketing Specialist certificate"></div>
+        <h3 class="font-heading font-semibold text-sm">Ecommerce Marketing Specialist</h3>
+        <p class="text-xs mt-1" style="color:var(--muted)"><i class="fa-solid fa-magnifying-glass mr-1"></i>Click to enlarge</p>
+      </div>
+      <div class="card cert-card rounded-2xl p-5" data-aos="fade-up" data-aos-delay="60" onclick="openCertModal('https://traceyklix.my.canva.site/updatedporfolio2025/media/90d3cbdd2af59fd0fb7be7c2868383f4.png','Social Media Certified')">
+        <div class="cert-frame mb-4"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/90d3cbdd2af59fd0fb7be7c2868383f4.png" alt="Social Media Certified certificate"></div>
+        <h3 class="font-heading font-semibold text-sm">Social Media Certified</h3>
+        <p class="text-xs mt-1" style="color:var(--muted)"><i class="fa-solid fa-magnifying-glass mr-1"></i>Click to enlarge</p>
+      </div>
+      <div class="card cert-card rounded-2xl p-5" data-aos="fade-up" data-aos-delay="120" onclick="openCertModal('https://traceyklix.my.canva.site/updatedporfolio2025/media/0eb5f160bd6d5d909a34e88c7e49af98.png','Email Marketing Certified')">
+        <div class="cert-frame mb-4"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/0eb5f160bd6d5d909a34e88c7e49af98.png" alt="Email Marketing Certified certificate"></div>
+        <h3 class="font-heading font-semibold text-sm">Email Marketing Certified</h3>
+        <p class="text-xs mt-1" style="color:var(--muted)"><i class="fa-solid fa-magnifying-glass mr-1"></i>Click to enlarge</p>
+      </div>
+      <div class="card cert-card rounded-2xl p-5" data-aos="fade-up" data-aos-delay="180" onclick="openCertModal('https://traceyklix.my.canva.site/updatedporfolio2025/media/f4b8ee904e48e228d8cbb9604408cfdd.png','Client Management')">
+        <div class="cert-frame mb-4"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/f4b8ee904e48e228d8cbb9604408cfdd.png" alt="Client Management certificate"></div>
+        <h3 class="font-heading font-semibold text-sm">Client Management</h3>
+        <p class="text-xs mt-1" style="color:var(--muted)"><i class="fa-solid fa-magnifying-glass mr-1"></i>Click to enlarge</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Cert Modal -->
+<div id="certModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-6" style="background:rgba(0,0,0,.85)">
+  <div class="relative max-w-2xl w-full">
+    <button onclick="closeCertModal()" class="absolute -top-12 right-0 text-3xl text-white"><i class="fa-solid fa-xmark"></i></button>
+    <div class="bg-white rounded-2xl overflow-hidden">
+      <img id="certModalImg" src="" alt="Certificate enlarged" class="w-full">
+    </div>
+    <p id="certModalTitle" class="text-center mt-4 font-heading text-lg"></p>
+  </div>
+</div>
+
+<div class="max-w-7xl mx-auto px-6 lg:px-10"><div class="divider"></div></div>
+
+<!-- ============ ABOUT ============ -->
+<section id="about" class="py-28 px-6 lg:px-10">
+  <div class="max-w-7xl mx-auto grid lg:grid-cols-5 gap-16 items-center">
+    <div class="lg:col-span-2" data-aos="fade-up">
+      <div class="rounded-3xl overflow-hidden border" style="border-color:var(--line)">
+        <img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/7e1abd7e501e33cd9056d9d34057d41b.png" alt="Tracey Santiago portrait" class="w-full">
+      </div>
+    </div>
+    <div class="lg:col-span-3" data-aos="fade-up" data-aos-delay="100">
+      <p class="section-label mb-4">About Me</p>
+      <h2 class="font-heading text-4xl md:text-5xl font-bold leading-tight mb-8">From Technical VA To Systems Architect</h2>
+      <div class="space-y-5 text-lg leading-relaxed" style="color:var(--muted)">
+        <p>Seven years ago I started as a technical virtual assistant, handling the tasks other people didn't want to do. Somewhere along the way, I stopped asking "what task needs doing" and started asking "what system would make this task disappear entirely."</p>
+        <p>That shift is what led me into automation, AI, and CRM architecture. I've spent the years since building funnels, email systems, and GoHighLevel workflows for 32+ e-commerce brands, health &amp; wellness businesses, real estate teams, and personal brands — with a best-result email campaign that returned 128% ROI in two months.</p>
+        <p>I'm a continuous learner by necessity — the tools change fast, and staying ahead of AI and automation is part of the job, not separate from it. Every certification, every new integration I pick up, feeds directly back into the systems I build for clients.</p>
+        <p>I don't measure my work in hours logged. I measure it in hours given back to the businesses I work with.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="max-w-7xl mx-auto px-6 lg:px-10"><div class="divider"></div></div>
+
+<!-- ============ CLIENTS ============ -->
+<section class="py-28 px-6 lg:px-10">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+      <p class="section-label mb-4">7 Years Of Client Work</p>
+      <h2 class="font-heading text-4xl md:text-5xl font-bold leading-tight">Brands I've Built Systems For</h2>
+    </div>
+    <div class="grid grid-cols-3 sm:grid-cols-5 gap-6" data-aos="fade-up">
+      <img class="rounded-full aspect-square object-cover border" style="border-color:var(--line)" src="https://traceyklix.my.canva.site/updatedporfolio2025/media/f17f7d4c563bb3154134130f7a947c79.png" alt="Client logo">
+      <img class="rounded-full aspect-square object-cover border" style="border-color:var(--line)" src="https://traceyklix.my.canva.site/updatedporfolio2025/media/7327535a52c135f67bc1ebcdcc226a68.png" alt="Client logo">
+      <img class="rounded-full aspect-square object-cover border" style="border-color:var(--line)" src="https://traceyklix.my.canva.site/updatedporfolio2025/media/22e322e539d083f08ef9cb18baff640d.png" alt="Client logo">
+      <img class="rounded-full aspect-square object-cover border" style="border-color:var(--line)" src="https://traceyklix.my.canva.site/updatedporfolio2025/media/94ed5fe786f335e2597de927020b0302.jpg" alt="Client logo">
+      <img class="rounded-full aspect-square object-cover border p-2" style="border-color:var(--line)" src="https://traceyklix.my.canva.site/updatedporfolio2025/media/290df49344ebfdad58b2c682a51fcc2f.png" alt="Client logo">
+      <img class="rounded-full aspect-square object-cover border p-2" style="border-color:var(--line)" src="https://traceyklix.my.canva.site/updatedporfolio2025/media/680b9c4c61f551ec1ba0edb9118139b3.png" alt="Client logo">
+      <img class="rounded-full aspect-square object-cover border p-2" style="border-color:var(--line)" src="https://traceyklix.my.canva.site/updatedporfolio2025/media/824a36c1cb03c2c9a40e6cd36a3278e6.png" alt="Client logo">
+      <img class="rounded-full aspect-square object-cover border p-4" style="border-color:var(--line)" src="https://traceyklix.my.canva.site/updatedporfolio2025/media/997e1eae42fd08e326339f49b8bc1a9e.png" alt="Client logo">
+      <img class="rounded-full aspect-square object-cover border p-4" style="border-color:var(--line)" src="https://traceyklix.my.canva.site/updatedporfolio2025/media/4e16c9fa432f98810e0999a5a08f1bc0.png" alt="Client logo">
+      <img class="rounded-full aspect-square object-cover border p-3" style="border-color:var(--line)" src="https://traceyklix.my.canva.site/updatedporfolio2025/media/d4a9420dd58aab6c2c469f278e896e63.png" alt="Client logo">
+      <img class="rounded-full aspect-square object-cover border" style="border-color:var(--line)" src="https://traceyklix.my.canva.site/updatedporfolio2025/media/43da487d36e58c83e65267e4796d9514.png" alt="Client logo">
+      <img class="rounded-full aspect-square object-cover border" style="border-color:var(--line)" src="https://traceyklix.my.canva.site/updatedporfolio2025/media/db8456452411f2a49d3e99db5c15fd48.jpg" alt="Client logo">
+      <img class="rounded-full aspect-square object-cover border" style="border-color:var(--line)" src="https://traceyklix.my.canva.site/updatedporfolio2025/media/4daa97d4789c172f6924808d552af775.png" alt="Client logo">
+      <img class="rounded-full aspect-square object-cover border" style="border-color:var(--line)" src="https://traceyklix.my.canva.site/updatedporfolio2025/media/bf8f09fda02804a0dd5a808fc29c35c2.png" alt="Client logo">
+      <img class="rounded-full aspect-square object-cover border p-3" style="border-color:var(--line)" src="https://traceyklix.my.canva.site/updatedporfolio2025/media/b958e607a8d27a20682e91fba489d5f3.png" alt="Client logo">
+    </div>
+  </div>
+</section>
+
+<div class="max-w-7xl mx-auto px-6 lg:px-10"><div class="divider"></div></div>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section id="testimonials" class="py-28 px-6 lg:px-10">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+      <p class="section-label mb-4">Testimonials</p>
+      <h2 class="font-heading text-4xl md:text-5xl font-bold leading-tight">What My Clients Are Saying</h2>
+    </div>
+
+    <div class="relative" data-aos="fade-up">
+      <div id="testiTrack">
+        <div class="testi-card card rounded-2xl p-8">
+          <div class="flex items-center gap-4 mb-5">
+            <img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/6d5d9b62e741dfff8aa2740445f8ceb3.jpg" class="w-14 h-14 rounded-full object-cover" alt="Steve C.">
+            <div>
+              <div class="font-heading font-semibold">Steve C.</div>
+              <div class="text-xs" style="color:var(--muted)">Dream Controllers</div>
+            </div>
+          </div>
+          <div class="star-gold mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p class="text-sm leading-relaxed" style="color:var(--muted)">"An absolute delight to work with. She knows her stuff, she's efficient, a self-starter, and extremely creative. I was a dunce when it came to digital marketing — she explained it, built it, managed it, and ran it. I endorse Tracey with pride and conviction."</p>
+        </div>
+        <div class="testi-card card rounded-2xl p-8">
+          <div class="flex items-center gap-4 mb-5">
+            <img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/d67262a16b1d1a99a2d4f64a1fc89d60.jpg" class="w-14 h-14 rounded-full object-cover" alt="Stefania B.">
+            <div>
+              <div class="font-heading font-semibold">Stefania B.</div>
+              <div class="text-xs" style="color:var(--muted)">BigFudge</div>
+            </div>
+          </div>
+          <div class="star-gold mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p class="text-sm leading-relaxed" style="color:var(--muted)">"Tracey's skill-set includes quickly completing administrative tasks, finding more efficient ways to manage them, and building successful email campaigns. She's a huge asset, and I'll continue leveraging her whenever I have an overflow of work."</p>
+        </div>
+        <div class="testi-card card rounded-2xl p-8">
+          <div class="flex items-center gap-4 mb-5">
+            <img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/43a3f198a0d9b4c3e1fd0b247589b521.jpg" class="w-14 h-14 rounded-full object-cover" alt="Jakub B.">
+            <div>
+              <div class="font-heading font-semibold">Jakub B.</div>
+              <div class="text-xs" style="color:var(--muted)">Orphic Nutrition</div>
+            </div>
+          </div>
+          <div class="star-gold mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p class="text-sm leading-relaxed" style="color:var(--muted)">"Tracey did great work on our project. She was a clear communicator, provided high-quality work, and stayed on schedule. I would absolutely work with her again."</p>
+        </div>
+        <div class="testi-card card rounded-2xl p-8">
+          <div class="flex items-center gap-4 mb-5">
+            <img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/7bcae36e3f9f392d18ed76fa3526e666.jpg" class="w-14 h-14 rounded-full object-cover" alt="Jonathan M.">
+            <div>
+              <div class="font-heading font-semibold">Jonathan M.</div>
+              <div class="text-xs" style="color:var(--muted)">Orphic Nutrition</div>
+            </div>
+          </div>
+          <div class="star-gold mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p class="text-sm leading-relaxed" style="color:var(--muted)">"Top performer, absolutely amazing worker, completed the project successfully with top results. Proved to be an instrumental factor in deciding the next stage of my company. Will definitely hire again."</p>
+        </div>
+        <div class="testi-card card rounded-2xl p-8">
+          <div class="flex items-center gap-4 mb-5">
+            <img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/1b2f467ce7bb1af9c9fdc01bc9298786.jpg" class="w-14 h-14 rounded-full object-cover" alt="Tessa H.">
+            <div>
+              <div class="font-heading font-semibold">Tessa H.</div>
+              <div class="text-xs" style="color:var(--muted)">Ruby Farms</div>
+            </div>
+          </div>
+          <div class="star-gold mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p class="text-sm leading-relaxed" style="color:var(--muted)">"Tracey is a really wonderful virtual assistant! The service exceeded all expectations and guarantees a continuing successful relationship. One of the best freelancers we've hired and will surely hire again."</p>
+        </div>
+        <div class="testi-card card rounded-2xl p-8">
+          <div class="flex items-center gap-4 mb-5">
+            <img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/5430760caa10879db26e581c4a93ece9.jpg" class="w-14 h-14 rounded-full object-cover" alt="Maximillian T.">
+            <div>
+              <div class="font-heading font-semibold">Maximillian T.</div>
+              <div class="text-xs" style="color:var(--muted)">BiancoShabby</div>
+            </div>
+          </div>
+          <div class="star-gold mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p class="text-sm leading-relaxed" style="color:var(--muted)">"Tracey's mastery of email campaigns is unparalleled. We've seen a remarkable improvement in open rates and engagement since implementing her strategies — personalized approach, A/B testing, timely insights. Kudos, Tracey!"</p>
+        </div>
+      </div>
+      <div class="flex items-center justify-center gap-4 mt-10">
+        <button onclick="testiScroll(-1)" class="btn-outline w-11 h-11 rounded-full flex items-center justify-center"><i class="fa-solid fa-chevron-left"></i></button>
+        <div id="testiDots" class="flex gap-2"></div>
+        <button onclick="testiScroll(1)" class="btn-outline w-11 h-11 rounded-full flex items-center justify-center"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="max-w-7xl mx-auto px-6 lg:px-10"><div class="divider"></div></div>
+
+<!-- ============ GALLERY ============ -->
+<section id="gallery" class="py-28 px-6 lg:px-10">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center max-w-2xl mx-auto mb-10" data-aos="fade-up">
+      <p class="section-label mb-4">Gallery</p>
+      <h2 class="font-heading text-4xl md:text-5xl font-bold leading-tight">Work Samples Across Every Discipline</h2>
+    </div>
+    <div class="flex flex-wrap justify-center gap-3 mb-12" data-aos="fade-up">
+      <button class="gal-filter-btn active px-5 py-2 rounded-full text-sm" data-filter="all">All</button>
+      <button class="gal-filter-btn px-5 py-2 rounded-full text-sm" data-filter="design">Graphic Design</button>
+      <button class="gal-filter-btn px-5 py-2 rounded-full text-sm" data-filter="email">Email &amp; Newsletters</button>
+      <button class="gal-filter-btn px-5 py-2 rounded-full text-sm" data-filter="social">Social Media</button>
+      <button class="gal-filter-btn px-5 py-2 rounded-full text-sm" data-filter="web">Web &amp; Funnels</button>
+    </div>
+
+    <div id="galGrid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5" data-aos="fade-up">
+      <!-- design -->
+      <div class="gal-item aspect-square" data-cat="design"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/7d898c4d84a8d9df1b5855f8e62d4f91.png" alt="Content design sample"></div>
+      <div class="gal-item aspect-square" data-cat="design"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/aeca1600d3da0a410a05e9bf81bedac9.png" alt="Content design sample"></div>
+      <div class="gal-item aspect-square" data-cat="design"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/777d045c61a3dd8d9ebd90831bb330d6.png" alt="Content design sample"></div>
+      <div class="gal-item aspect-square" data-cat="design"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/334185b8998cb70cdd71e221daff6dbd.png" alt="Content design sample"></div>
+      <div class="gal-item aspect-square" data-cat="design"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/458c32fdd0240cae6fa201ffabbe1a27.png" alt="Content design sample"></div>
+      <div class="gal-item aspect-square" data-cat="design"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/d52302088bfe494a074ed023a0fcd461.png" alt="Content design sample"></div>
+      <div class="gal-item aspect-square" data-cat="design"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/126e6aaf3c9f9a60857cf3c4300d7d68.jpg" alt="Content design sample"></div>
+      <div class="gal-item aspect-square" data-cat="design"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/fce7502e3be3977cd7b08e60d3fc4253.png" alt="Content design sample"></div>
+      <div class="gal-item aspect-square" data-cat="design"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/6348dce33ad5a34dad7cb5c6f4e0e2eb.png" alt="Content design sample"></div>
+      <div class="gal-item aspect-square" data-cat="design"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/dc759df956f09fd78fa630cceee6c981.jpg" alt="Content design sample"></div>
+      <div class="gal-item aspect-square" data-cat="design"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/2b24ebf72b44abe0516a2ee949b82b9f.jpg" alt="Content design sample"></div>
+      <div class="gal-item aspect-square" data-cat="design"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/be00899d6be3c7c3fa373790219ce169.png" alt="Content design sample"></div>
+      <div class="gal-item aspect-square" data-cat="design"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/2231f165ec4483985bdec8a2846525da.png" alt="Content design sample"></div>
+      <div class="gal-item aspect-square" data-cat="design"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/80ced4c832cc9fc2bcd49d3c4dc02347.png" alt="Content design sample"></div>
+      <div class="gal-item aspect-square" data-cat="design"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/3c85c04bab04fff884955eeabf6cc43e.png" alt="Content design sample"></div>
+      <div class="gal-item aspect-square" data-cat="design"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/d45b45f949bb7970a2da3859f959001c.png" alt="Content design sample"></div>
+      <div class="gal-item aspect-square" data-cat="design"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/bb897ae7d561173198cc006c5b3dc5db.png" alt="Content design sample"></div>
+      <div class="gal-item aspect-square" data-cat="design"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/82cae9fc4693534df0a96e22026fff22.jpg" alt="Content design sample"></div>
+      <div class="gal-item aspect-square" data-cat="design"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/21b1cbd1e6ee47e01281a5e7700731d2.png" alt="Content design sample"></div>
+      <div class="gal-item aspect-square" data-cat="design"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/1f0de407a5fdcf0b944ddfd6a2b77813.png" alt="Content design sample"></div>
+      <div class="gal-item aspect-square" data-cat="design"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/32f08c47ab747dc64e0da56620ffb477.jpg" alt="Content design sample"></div>
+      <div class="gal-item aspect-square" data-cat="design"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/1586d258014e3fae03c07366e90142cf.png" alt="Content design sample"></div>
+
+      <!-- email -->
+      <div class="gal-item aspect-[3/4]" data-cat="email"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/bb06a5d732e362f168e4c2e208810c20.jpg" alt="Newsletter sample"></div>
+      <div class="gal-item aspect-[3/4]" data-cat="email"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/715a2ab36f76d83913263f7e6cafe425.png" alt="Newsletter sample"></div>
+      <div class="gal-item aspect-[3/4]" data-cat="email"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/b9493c72f95531e0244be0a544f0f144.jpg" alt="Newsletter sample"></div>
+      <div class="gal-item aspect-[3/4]" data-cat="email"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/b12a782a1714bd89fbfb1efd327d171f.png" alt="Newsletter sample"></div>
+      <div class="gal-item aspect-[3/4]" data-cat="email"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/c5595f0a4143733b6d195633f70ed1fa.png" alt="Newsletter sample"></div>
+      <div class="gal-item aspect-[3/4]" data-cat="email"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/e75b57c9332b2319ad4b6db46c5033a1.png" alt="Newsletter sample"></div>
+      <div class="gal-item aspect-square" data-cat="email"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/1896a547fd676305c43cc61591c93c54.png" alt="Email revenue results — biggest account"></div>
+      <div class="gal-item aspect-square" data-cat="email"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/f9f1e84749329a73db5fd1ac9604c738.png" alt="Email revenue results — highest conversion rate"></div>
+      <div class="gal-item aspect-square" data-cat="email"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/fac8d62491d16e030bc41762f9f989c2.png" alt="Email revenue results — newest account"></div>
+      <div class="gal-item aspect-[3/4]" data-cat="email"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/497ff00002f902d80c5648bb714a654a.png" alt="Newsletter sample"></div>
+      <div class="gal-item aspect-[3/4]" data-cat="email"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/0985fd682752566ccad8f82c3b525218.png" alt="Newsletter sample"></div>
+      <div class="gal-item aspect-[3/4]" data-cat="email"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/989f21f6319c27cda422752719b0a02f.png" alt="Newsletter sample"></div>
+      <div class="gal-item aspect-[3/4]" data-cat="email"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/040a0950602ff2dff61340cc8e83ee8a.png" alt="Newsletter sample"></div>
+      <div class="gal-item aspect-[3/4]" data-cat="email"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/e229fc22f56bea2e3ea64673b2a0da4e.png" alt="Newsletter sample"></div>
+      <div class="gal-item aspect-[3/4]" data-cat="email"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/0656acb82c0f5ec9c1fc82eee64a227f.png" alt="Newsletter sample"></div>
+      <div class="gal-item aspect-[3/4]" data-cat="email"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/b20ba4d19c03ee36d997c0af0e42ad0b.png" alt="Newsletter sample"></div>
+      <div class="gal-item aspect-[3/4]" data-cat="email"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/ecbacf02439bc6916d5d41c5f5c1f6ce.png" alt="Newsletter sample"></div>
+
+      <!-- social -->
+      <div class="gal-item aspect-[9/16]" data-cat="social"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/c26c0e319573beacbd76eada1f1bb4de.png" alt="Instagram handle mockup"></div>
+      <div class="gal-item aspect-[9/16]" data-cat="social"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/b0d58dcda0d8d0b87ca4c098cc6cb529.png" alt="Instagram handle mockup"></div>
+      <div class="gal-item aspect-[9/16]" data-cat="social"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/97545198936ca35b83489e62d89d43d4.png" alt="Instagram handle mockup"></div>
+      <div class="gal-item aspect-[9/16]" data-cat="social"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/37aa673644e03bd0cceb07c8a47e02ee.png" alt="Instagram handle mockup"></div>
+      <div class="gal-item aspect-[9/16]" data-cat="social"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/5df134e7920fa388850dc6528405b66e.png" alt="Instagram handle mockup"></div>
+
+      <!-- web -->
+      <div class="gal-item aspect-video sm:col-span-2" data-cat="web"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/182c987c485cbf65fd7e691e8431a70e.png" alt="Island Home website mockup"></div>
+      <div class="gal-item aspect-video sm:col-span-2" data-cat="web"><img src="https://traceyklix.my.canva.site/updatedporfolio2025/media/5db17717aaae3539fad9f63d93d478fe.png" alt="Ultra Recovery Care website mockup"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery lightbox -->
+<div id="galModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-6" style="background:rgba(0,0,0,.9)" onclick="closeGalModal()">
+  <button onclick="closeGalModal()" class="absolute top-6 right-6 text-3xl text-white"><i class="fa-solid fa-xmark"></i></button>
+  <img id="galModalImg" src="" alt="Enlarged sample" class="max-h-[85vh] max-w-full rounded-xl">
+</div>
+
+<!-- ============ FINAL CTA ============ -->
+<section id="contact" class="py-32 px-6 lg:px-10 border-t" style="border-color:var(--line)">
+  <div class="max-w-5xl mx-auto text-center" data-aos="fade-up">
+    <p class="section-label mb-4">Let's Work Together</p>
+    <h2 class="font-heading text-4xl md:text-6xl font-bold leading-tight mb-8">Ready To Build Smarter Systems?</h2>
+    <p class="text-lg max-w-2xl mx-auto mb-12" style="color:var(--muted)">Let's automate the repetitive work so you can focus on growing your business.</p>
+    <div class="flex flex-wrap justify-center gap-4 mb-16">
+      <a href="mailto:tracey@klixvasolutions.com" class="btn-gold px-10 py-4 rounded-full text-lg">Let's Work Together</a>
+    </div>
+    <div class="flex flex-wrap justify-center gap-x-10 gap-y-4 text-sm" style="color:var(--muted)">
+      <a href="mailto:tracey@klixvasolutions.com" class="hover:text-white transition-colors"><i class="fa-solid fa-envelope mr-2" style="color:var(--gold)"></i>tracey@klixvasolutions.com</a>
+      <a href="mailto:mayjoysantiago@gmail.com" class="hover:text-white transition-colors"><i class="fa-solid fa-envelope mr-2" style="color:var(--gold)"></i>mayjoysantiago@gmail.com</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="py-10 px-6 lg:px-10 border-t" style="border-color:var(--line)">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-sm" style="color:var(--muted)">
+    <div>&copy; <span id="year"></span> Tracey Santiago &middot; Ante Tracey. All rights reserved.</div>
+    <div class="flex items-center gap-6">
+      <a href="https://traceyklix.my.canva.site/updatedporfolio2025" target="_blank" rel="noopener" class="hover:text-white transition-colors">Previous Portfolio</a>
+      <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-facebook"></i></a>
+      <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to top -->
+<button id="backToTop" class="fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full btn-gold flex items-center justify-center text-lg">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<!-- ============ SCRIPTS ============ -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 700, once: true, easing: 'ease-out-cubic' });
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Scroll progress + nav background + back to top
+  const nav = document.getElementById('mainNav');
+  const progress = document.getElementById('scrollProgress');
+  const backToTop = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    progress.style.width = (scrollTop / docHeight * 100) + '%';
+    nav.classList.toggle('scrolled', scrollTop > 40);
+    backToTop.classList.toggle('show', scrollTop > 600);
+  });
+  backToTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+  // Mobile menu
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  let menuOpen = false;
+  menuBtn.addEventListener('click', () => {
+    menuOpen = !menuOpen;
+    mobileMenu.style.maxHeight = menuOpen ? '500px' : '0';
+    mobileMenu.style.opacity = menuOpen ? '1' : '0';
+    menuBtn.innerHTML = menuOpen ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+  });
+  document.querySelectorAll('#mobileMenu a').forEach(a => a.addEventListener('click', () => {
+    menuOpen = false;
+    mobileMenu.style.maxHeight = '0';
+    mobileMenu.style.opacity = '0';
+    menuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+  }));
+
+  // Certificate modal
+  function openCertModal(src, title){
+    document.getElementById('certModalImg').src = src;
+    document.getElementById('certModalTitle').textContent = title;
+    const modal = document.getElementById('certModal');
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+  }
+  function closeCertModal(){
+    const modal = document.getElementById('certModal');
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+  }
+
+  // Gallery lightbox
+  document.querySelectorAll('.gal-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const img = item.querySelector('img');
+      document.getElementById('galModalImg').src = img.src;
+      const modal = document.getElementById('galModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    });
+  });
+  function closeGalModal(){
+    const modal = document.getElementById('galModal');
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+  }
+
+  // Gallery filter
+  const filterBtns = document.querySelectorAll('.gal-filter-btn');
+  const galItems = document.querySelectorAll('.gal-item');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      galItems.forEach(item => {
+        item.style.display = (filter === 'all' || item.dataset.cat === filter) ? '' : 'none';
+      });
+    });
+  });
+
+  // Testimonial carousel
+  const track = document.getElementById('testiTrack');
+  const dotsWrap = document.getElementById('testiDots');
+  const cards = track.children.length;
+  for(let i=0;i<cards;i++){
+    const d = document.createElement('div');
+    d.className = 'dot' + (i===0 ? ' active' : '');
+    d.addEventListener('click', () => scrollToCard(i));
+    dotsWrap.appendChild(d);
+  }
+  function updateDots(){
+    const cardWidth = track.children[0].offsetWidth + 24;
+    const idx = Math.round(track.scrollLeft / cardWidth);
+    [...dotsWrap.children].forEach((d,i) => d.classList.toggle('active', i===idx));
+  }
+  function scrollToCard(i){
+    const cardWidth = track.children[0].offsetWidth + 24;
+    track.scrollTo({left: cardWidth * i, behavior:'smooth'});
+  }
+  function testiScroll(dir){
+    const cardWidth = track.children[0].offsetWidth + 24;
+    track.scrollBy({left: cardWidth * dir, behavior:'smooth'});
+  }
+  track.addEventListener('scroll', () => { window.clearTimeout(track._t); track._t = setTimeout(updateDots, 100); });
+
+  // Smooth anchor scroll offset (fixed nav)
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href').slice(1);
+      const el = document.getElementById(id);
+      if(el){
+        e.preventDefault();
+        window.scrollTo({top: el.offsetTop - 80, behavior:'smooth'});
+      }
+    });
+  });
+
+  // Auto-advance testimonials
+  let autoTimer = setInterval(() => testiScroll(1), 6000);
+  track.addEventListener('mouseenter', () => clearInterval(autoTimer));
+  track.addEventListener('mouseleave', () => { autoTimer = setInterval(() => testiScroll(1), 6000); });
+</script>
+
+</body>
+</html>
